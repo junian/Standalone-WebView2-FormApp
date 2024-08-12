@@ -6,10 +6,21 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+      
+    <RuntimeIdentifiers>win-x64;win-x86;win-arm64</RuntimeIdentifiers>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2592.51" />
+    <PackageReference Include="WebView2.Runtime.ARM64" Version="127.0.2651.98" Condition="'$(RuntimeIdentifier)'=='win-arm64'" />
+    <PackageReference Include="WebView2.Runtime.X64" Version="127.0.2651.98" Condition="'$(RuntimeIdentifier)'=='win-x64'" />
+    <PackageReference Include="WebView2.Runtime.X86" Version="127.0.2651.98" Condition="'$(RuntimeIdentifier)'=='win-x86'" />
   </ItemGroup>
 
 </Project>
